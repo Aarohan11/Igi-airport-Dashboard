@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: igi-airport-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --chdir backend app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: MOCK_DASHBOARD_DATA
+        value: "true"
+      - key: FLIGHT_DATA_PROVIDER
+        value: "auto"
+      - key: ALLOW_LOW_CONFIDENCE_FALLBACK
+        value: "false"

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Details - IGI Airport</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <nav class="nav">
+        <div class="brand">
+            <span class="dot"></span>
+            <div>
+                <p class="eyebrow">IGI Airport, Delhi</p>
+                <h1>Flight Details</h1>
+            </div>
+        </div>
+        <div class="nav-tools">
+            <div class="ist-ticker" aria-live="polite">
+                <span class="ist-label">IST</span>
+                <span id="current-time">--:--:--</span>
+                <span id="current-date">Loading...</span>
+            </div>
+            <a class="btn ghost" href="/dashboard">Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="flight-detail-container" style="display: none;">
+            <section class="grid-two">
+                <div class="card">
+                    <h2 id="flight-number-title" style="margin-bottom: 20px;"></h2>
+                    <div class="detail-section">
+                        <div class="detail-row">
+                            <span class="detail-label">Airline</span>
+                            <span class="detail-value" id="airline"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Aircraft</span>
+                            <span class="detail-value" id="aircraft"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Route Type</span>
+                            <span class="detail-value" id="route-type"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Flight Status</span>
+                            <span class="detail-value" id="status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Departure Information</h2>
+                    <div class="detail-section">
+                        <div class="detail-row">
+                            <span class="detail-label">From</span>
+                            <span class="detail-value" id="origin"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">To</span>
+                            <span class="detail-value" id="destination"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Scheduled Time</span>
+                            <span class="detail-value" id="scheduled-time"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Estimated Time</span>
+                            <span class="detail-value" id="estimated-time"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid-two">
+                <div class="card">
+                    <h2>Gate & Terminal</h2>
+                    <div class="detail-section">
+                        <div class="detail-row">
+                            <span class="detail-label">Terminal</span>
+                            <span class="detail-value" id="terminal"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Gate Number</span>
+                            <span class="detail-value" id="gate"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Terminal Congestion</h2>
+                    <div class="detail-section">
+                        <div class="detail-row">
+                            <span class="detail-label">Congestion Level</span>
+                            <span class="detail-value" id="congestion-level"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Estimated Wait Time</span>
+                            <span class="detail-value" id="congestion-wait-time"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid-two">
+                <div class="card">
+                    <h2>Food & Beverage in Terminal</h2>
+                    <div id="terminal-food" class="amenity-list"></div>
+                </div>
+
+                <div class="card">
+                    <h2>Lounges in Terminal</h2>
+                    <div id="terminal-lounges" class="amenity-list"></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="loading-container" style="text-align: center; padding: 40px;">
+            <p style="font-size: 18px; color: #666;">Loading flight details...</p>
+        </div>
+
+        <div id="error-container" style="display: none;">
+            <div class="card" style="border-left: 4px solid #d32f2f;">
+                <h2 style="color: #d32f2f;">Error</h2>
+                <p id="error-message"></p>
+                <a href="/dashboard" class="btn" style="margin-top: 20px;">Return to Dashboard</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Real-time Flight Operations System</p>
+    </footer>
+
+    <script>
+        async function loadFlightDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const flightNumber = params.get('flight');
+
+            if (!flightNumber) {
+                showError('No flight number provided');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/flight-detail?flight_number=${encodeURIComponent(flightNumber)}`);
+                const data = await response.json();
+
+                if (!response.ok) {
+                    showError(data.error || 'Unable to fetch flight details');
+                    return;
+                }
+
+                displayFlightDetail(data);
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            }
+        }
+
+        function displayFlightDetail(data) {
+            document.getElementById('loading-container').style.display = 'none';
+            document.getElementById('flight-detail-container').style.display = 'block';
+
+            document.getElementById('flight-number-title').textContent = `Flight ${data.flight_number}`;
+            document.getElementById('airline').textContent = data.airline;
+            document.getElementById('aircraft').textContent = data.aircraft;
+            document.getElementById('route-type').textContent = data.route_type.charAt(0).toUpperCase() + data.route_type.slice(1);
+            
+            // Format status nicely
+            const statusText = (data.status || "scheduled")
+                .split("-")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+            const statusElement = document.getElementById('status');
+            statusElement.textContent = statusText;
+            statusElement.style.fontWeight = 'bold';
+            statusElement.style.color = 
+                data.status === 'gate-closed' ? '#d32f2f' :
+                data.status === 'final-call' ? '#f57c00' :
+                data.status === 'boarding' ? '#fbc02d' :
+                data.status === 'check-in' ? '#1976d2' :
+                '#4caf50';
+
+            document.getElementById('origin').textContent = data.origin;
+            document.getElementById('destination').textContent = data.destination + (data.destination_country ? ` (${data.destination_country})` : '');
+            document.getElementById('scheduled-time').textContent = formatTime(data.scheduled_time);
+            document.getElementById('estimated-time').textContent = formatTime(data.estimated_time);
+            document.getElementById('terminal').textContent = `Terminal ${data.terminal}`;
+            document.getElementById('gate').textContent = data.gate || 'TBD';
+            
+            const congestionBadge = document.getElementById('congestion-level');
+            congestionBadge.textContent = data.congestion_level;
+            congestionBadge.className = `badge ${data.congestion_level.toLowerCase()}`;
+            
+            document.getElementById('congestion-wait-time').textContent = `${data.congestion_wait_time} minutes`;
+
+            const foodContainer = document.getElementById('terminal-food');
+            if (data.terminal_food && data.terminal_food.length > 0) {
+                foodContainer.innerHTML = data.terminal_food.map(item => `
+                    <div class="amenity-item">
+                        <strong>${item.name}</strong>
+                        <p>${item.category}</p>
+                        <p class="amenity-location">${item.location}</p>
+                    </div>
+                `).join('');
+            } else {
+                foodContainer.innerHTML = '<p class="empty-state">No food venues available</p>';
+            }
+
+            const loungeContainer = document.getElementById('terminal-lounges');
+            if (data.terminal_lounges && data.terminal_lounges.length > 0) {
+                loungeContainer.innerHTML = data.terminal_lounges.map(item => `
+                    <div class="amenity-item">
+                        <strong>${item.name}</strong>
+                        <p>Access: ${item.access}</p>
+                        <p class="amenity-location">${item.location} | ${item.booking}</p>
+                    </div>
+                `).join('');
+            } else {
+                loungeContainer.innerHTML = '<p class="empty-state">No lounges available</p>';
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('loading-container').style.display = 'none';
+            document.getElementById('error-container').style.display = 'block';
+            document.getElementById('error-message').textContent = message;
+        }
+
+        function formatTime(timeStr) {
+            try {
+                const date = new Date(timeStr);
+                return date.toLocaleString('en-IN', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                });
+            } catch {
+                return timeStr;
+            }
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const timeEl = document.getElementById('current-time');
+            const dateEl = document.getElementById('current-date');
+
+            if (timeEl) {
+                timeEl.textContent = now.toLocaleTimeString('en-IN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false,
+                    timeZone: 'Asia/Kolkata'
+                });
+            }
+
+            if (dateEl) {
+                dateEl.textContent = now.toLocaleDateString('en-IN', {
+                    weekday: 'short',
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    timeZone: 'Asia/Kolkata'
+                });
+            }
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        loadFlightDetail();
+        
+        // Auto-refresh every 20 seconds
+        setInterval(() => {
+            const params = new URLSearchParams(window.location.search);
+            const flightNumber = params.get('flight');
+            if (flightNumber) {
+                fetch(`/api/flight-detail?flight_number=${encodeURIComponent(flightNumber)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.error) {
+                            displayFlightDetail(data);
+                        }
+                    })
+                    .catch(() => {
+                        // Silent fail - keep existing data
+                    });
+            }
+        }, 20000);
+    </script>
+</body>
+</html>

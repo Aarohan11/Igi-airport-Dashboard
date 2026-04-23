@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IGI Airport Operational Dashboard</title>
+    <link rel="stylesheet" href="/static/styles-dashboard.css" />
+</head>
+<body class="dashboard-page">
+    <header class="fids-topbar">
+        <div class="fids-title-wrap">
+            <div class="fids-kicker">DELHI AIRPORT - LIVE DEPARTURES</div>
+            <h1 class="fids-title">Flight Information Display</h1>
+        </div>
+        <div class="fids-clock-wrap">
+            <div class="fids-clock" id="current-time">--:--:-- IST</div>
+            <div class="fids-date" id="current-date">Loading...</div>
+        </div>
+        <a class="fids-back" href="/">Back</a>
+    </header>
+
+    <section class="fids-meta">
+        <div class="fids-meta-card">
+            <span class="meta-label">Departures In View</span>
+            <span class="meta-value" id="departure-count">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 1</span>
+            <span class="meta-value" id="t1-count">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 2</span>
+            <span class="meta-value" id="t2-count">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 3</span>
+            <span class="meta-value" id="t3-count">--</span>
+        </div>
+        <div class="fids-meta-card wide">
+            <span class="meta-label">Display Window</span>
+            <span class="meta-value meta-note" id="window-note">Loading departures...</span>
+        </div>
+    </section>
+
+    <section class="gate-strip" aria-label="Gate waiting time display">
+        <div class="gate-side-label">
+            <div class="gate-side-title">WAIT TIME</div>
+            <div class="gate-side-sub">PRATIKSHA SAMAY</div>
+        </div>
+
+        <div class="gate-center-panel">
+            <div class="gate-panel-head">
+                <h2>SECURITY ENTRY GATES</h2>
+                <div class="gate-level-wrap">
+                    <span>Congestion</span>
+                    <span id="gate-congestion-level" class="gate-level-pill">--</span>
+                </div>
+            </div>
+            <div class="gate-grid" id="gate-wait-grid"></div>
+        </div>
+
+        <div class="gate-side-label">
+            <div class="gate-side-title">WAIT TIME</div>
+            <div class="gate-side-sub">PRATIKSHA SAMAY</div>
+        </div>
+    </section>
+
+    <main class="fids-main">
+        <section class="fids-board">
+            <div class="board-head">
+                <h2>TERMINAL 1 - DEPARTURES</h2>
+            </div>
+            <div class="board-table-wrap">
+                <table class="fids-table" aria-label="Terminal 1 departures board">
+                    <thead>
+                        <tr>
+                            <th>STA</th>
+                            <th>ETA</th>
+                            <th>Airline</th>
+                            <th>Flight</th>
+                            <th>From/Via</th>
+                            <th>Gate</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="board-t1-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="fids-board">
+            <div class="board-head">
+                <h2>TERMINAL 2 - DEPARTURES</h2>
+            </div>
+            <div class="board-table-wrap">
+                <table class="fids-table" aria-label="Terminal 2 departures board">
+                    <thead>
+                        <tr>
+                            <th>STA</th>
+                            <th>ETA</th>
+                            <th>Airline</th>
+                            <th>Flight</th>
+                            <th>From/Via</th>
+                            <th>Gate</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="board-t2-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="fids-board">
+            <div class="board-head">
+                <h2>TERMINAL 3 - DEPARTURES</h2>
+            </div>
+            <div class="board-table-wrap">
+                <table class="fids-table" aria-label="Terminal 3 departures board">
+                    <thead>
+                        <tr>
+                            <th>STA</th>
+                            <th>ETA</th>
+                            <th>Airline</th>
+                            <th>Flight</th>
+                            <th>From/Via</th>
+                            <th>Gate</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="board-t3-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section class="amenities-section">
+            <div class="amenities-header">
+                <h2>TERMINAL AMENITIES</h2>
+            </div>
+            <div id="amenities-container"></div>
+        </section>
+    </main>
+
+    <!-- Flight Detail Modal -->
+    <div id="flight-detail-modal" class="flight-detail-modal hide">
+        <div class="flight-detail-overlay" onclick="closeFlightModal()"></div>
+        <div class="flight-detail-panel">
+            <div class="flight-detail-header">
+                <h2 id="modal-flight-number"></h2>
+                <button class="modal-close-btn" onclick="closeFlightModal()">✕</button>
+            </div>
+            <div id="flight-detail-content" class="flight-detail-content"></div>
+        </div>
+    </div>
+
+    <script src="/static/script-dashboard.js"></script>
+</body>
+</html>

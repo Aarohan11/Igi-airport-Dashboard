@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Costa Coffee",
+        "terminal": "Terminal 1",
+        "category": "Cafe",
+        "location": "Departure Hall"
+    },
+    {
+        "name": "Haldiram's",
+        "terminal": "Terminal 1",
+        "category": "Snacks and Sweets",
+        "location": "Domestic Concourse"
+    },
+    {
+        "name": "Starbucks",
+        "terminal": "Terminal 1",
+        "category": "Cafe",
+        "location": "Security Hold Area"
+    },
+    {
+        "name": "McDonald's",
+        "terminal": "Terminal 1",
+        "category": "Quick Service",
+        "location": "Food Court"
+    },
+    {
+        "name": "Subway",
+        "terminal": "Terminal 2",
+        "category": "Quick Service",
+        "location": "Security Hold Area"
+    },
+    {
+        "name": "Barista",
+        "terminal": "Terminal 2",
+        "category": "Cafe",
+        "location": "Departure Lounge"
+    },
+    {
+        "name": "Tim Hortons",
+        "terminal": "Terminal 2",
+        "category": "Cafe",
+        "location": "Concourse"
+    },
+    {
+        "name": "Domino's",
+        "terminal": "Terminal 2",
+        "category": "Quick Service",
+        "location": "Food Court"
+    },
+    {
+        "name": "Cafe Delhi Heights",
+        "terminal": "Terminal 3",
+        "category": "Casual Dining",
+        "location": "Domestic Departure Lounge"
+    },
+    {
+        "name": "Dilli Streat",
+        "terminal": "Terminal 3",
+        "category": "Regional Cuisine",
+        "location": "International Departure Lounge"
+    },
+    {
+        "name": "KFC",
+        "terminal": "Terminal 3",
+        "category": "Quick Service",
+        "location": "Food Court Zone"
+    },
+    {
+        "name": "Starbucks",
+        "terminal": "Terminal 3",
+        "category": "Cafe",
+        "location": "Main Concourse"
+    },
+    {
+        "name": "McDonald's",
+        "terminal": "Terminal 3",
+        "category": "Quick Service",
+        "location": "Main Food Court"
+    },
+    {
+        "name": "Domino's",
+        "terminal": "Terminal 3",
+        "category": "Quick Service",
+        "location": "Food Court Zone"
+    },
+    {
+        "name": "Frank's",
+        "terminal": "Terminal 3",
+        "category": "Premium Dining",
+        "location": "International Departure Lounge"
+    }
+]

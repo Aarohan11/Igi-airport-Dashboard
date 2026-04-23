@@ -1,0 +1,145 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; border: 1px solid #ddd;">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f9f7f3"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1b16">
+    Indira Gandhi International Airport (Delhi) - Terminal Layout Schematic
+  </text>
+  
+  <!-- Terminal 1 Section -->
+  <g id="terminal-1">
+    <!-- Terminal 1 Building -->
+    <rect x="50" y="80" width="300" height="250" fill="#e8f4f8" stroke="#0d5c63" stroke-width="2"/>
+    <text x="200" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#0d5c63">Terminal 1</text>
+    <text x="200" y="145" text-anchor="middle" font-size="12" fill="#0d5c63">Domestic</text>
+    
+    <!-- Gates -->
+    <circle cx="100" cy="180" r="20" fill="#c35a2a"/>
+    <text x="100" y="188" text-anchor="middle" font-size="10" fill="#fff">G1</text>
+    <circle cx="150" cy="180" r="20" fill="#c35a2a"/>
+    <text x="150" y="188" text-anchor="middle" font-size="10" fill="#fff">G2</text>
+    <circle cx="200" cy="180" r="20" fill="#c35a2a"/>
+    <text x="200" y="188" text-anchor="middle" font-size="10" fill="#fff">G3</text>
+    
+    <circle cx="100" cy="240" r="20" fill="#c35a2a"/>
+    <text x="100" y="248" text-anchor="middle" font-size="10" fill="#fff">G4</text>
+    <circle cx="150" cy="240" r="20" fill="#c35a2a"/>
+    <text x="150" y="248" text-anchor="middle" font-size="10" fill="#fff">G5</text>
+    <circle cx="200" cy="240" r="20" fill="#c35a2a"/>
+    <text x="200" y="248" text-anchor="middle" font-size="10" fill="#fff">G6</text>
+    
+    <!-- Security -->
+    <rect x="60" y="300" width="280" height="30" fill="#ffcc99" stroke="#c69c2f" stroke-width="2"/>
+    <text x="200" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#874d1f">Security Checkpoint</text>
+  </g>
+  
+  <!-- Terminal 2 Section -->
+  <g id="terminal-2">
+    <!-- Terminal 2 Building -->
+    <rect x="450" y="80" width="300" height="250" fill="#f0e8f4" stroke="#7b4a2c" stroke-width="2"/>
+    <text x="600" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#7b4a2c">Terminal 2</text>
+    <text x="600" y="145" text-anchor="middle" font-size="12" fill="#7b4a2c">Domestic &amp; Limited Intl</text>
+    
+    <!-- Gates -->
+    <circle cx="500" cy="180" r="20" fill="#c35a2a"/>
+    <text x="500" y="188" text-anchor="middle" font-size="10" fill="#fff">G7</text>
+    <circle cx="550" cy="180" r="20" fill="#c35a2a"/>
+    <text x="550" y="188" text-anchor="middle" font-size="10" fill="#fff">G8</text>
+    <circle cx="600" cy="180" r="20" fill="#c35a2a"/>
+    <text x="600" y="188" text-anchor="middle" font-size="10" fill="#fff">G9</text>
+    
+    <circle cx="500" cy="240" r="20" fill="#c35a2a"/>
+    <text x="500" y="248" text-anchor="middle" font-size="10" fill="#fff">G10</text>
+    <circle cx="550" cy="240" r="20" fill="#c35a2a"/>
+    <text x="550" y="248" text-anchor="middle" font-size="10" fill="#fff">G11</text>
+    <circle cx="600" cy="240" r="20" fill="#c35a2a"/>
+    <text x="600" y="248" text-anchor="middle" font-size="10" fill="#fff">G12</text>
+    
+    <!-- Security -->
+    <rect x="460" y="300" width="280" height="30" fill="#ffcc99" stroke="#c69c2f" stroke-width="2"/>
+    <text x="600" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#874d1f">Security Checkpoint</text>
+  </g>
+  
+  <!-- Terminal 3 Section -->
+  <g id="terminal-3">
+    <!-- Terminal 3 Building -->
+    <rect x="850" y="80" width="300" height="250" fill="#e8f8e8" stroke="#0d5c63" stroke-width="2"/>
+    <text x="1000" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#0d5c63">Terminal 3</text>
+    <text x="1000" y="145" text-anchor="middle" font-size="12" fill="#0d5c63">International &amp; Domestic</text>
+    
+    <!-- Gates -->
+    <circle cx="900" cy="180" r="20" fill="#0d5c63"/>
+    <text x="900" y="188" text-anchor="middle" font-size="10" fill="#fff">G13</text>
+    <circle cx="950" cy="180" r="20" fill="#0d5c63"/>
+    <text x="950" y="188" text-anchor="middle" font-size="10" fill="#fff">G14</text>
+    <circle cx="1000" cy="180" r="20" fill="#0d5c63"/>
+    <text x="1000" y="188" text-anchor="middle" font-size="10" fill="#fff">G15</text>
+    
+    <circle cx="900" cy="240" r="20" fill="#0d5c63"/>
+    <text x="900" y="248" text-anchor="middle" font-size="10" fill="#fff">G16</text>
+    <circle cx="950" cy="240" r="20" fill="#0d5c63"/>
+    <text x="950" y="248" text-anchor="middle" font-size="10" fill="#fff">G17</text>
+    <circle cx="1000" cy="240" r="20" fill="#0d5c63"/>
+    <text x="1000" y="248" text-anchor="middle" font-size="10" fill="#fff">G18</text>
+    
+    <!-- Security -->
+    <rect x="860" y="300" width="280" height="30" fill="#ffcc99" stroke="#c69c2f" stroke-width="2"/>
+    <text x="1000" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#874d1f">Security Checkpoint</text>
+  </g>
+  
+  <!-- Food &amp; Beverage Areas -->
+  <g id="food-areas">
+    <rect x="50" y="420" width="150" height="80" fill="#fff3e0" stroke="#b86c4f" stroke-width="2" rx="8"/>
+    <text x="125" y="445" text-anchor="middle" font-size="12" font-weight="bold" fill="#b86c4f">Food &amp; Beverage</text>
+    <text x="125" y="465" text-anchor="middle" font-size="10" fill="#874d1f">Terminal 1</text>
+    <text x="125" y="485" text-anchor="middle" font-size="9" fill="#874d1f">Multiple outlets</text>
+    
+    <rect x="250" y="420" width="150" height="80" fill="#fff3e0" stroke="#b86c4f" stroke-width="2" rx="8"/>
+    <text x="325" y="445" text-anchor="middle" font-size="12" font-weight="bold" fill="#b86c4f">Food &amp; Beverage</text>
+    <text x="325" y="465" text-anchor="middle" font-size="10" fill="#874d1f">Terminal 2</text>
+    <text x="325" y="485" text-anchor="middle" font-size="9" fill="#874d1f">Multiple outlets</text>
+    
+    <rect x="450" y="420" width="150" height="80" fill="#fff3e0" stroke="#b86c4f" stroke-width="2" rx="8"/>
+    <text x="525" y="445" text-anchor="middle" font-size="12" font-weight="bold" fill="#b86c4f">Food &amp; Beverage</text>
+    <text x="525" y="465" text-anchor="middle" font-size="10" fill="#874d1f">Terminal 3</text>
+    <text x="525" y="485" text-anchor="middle" font-size="9" fill="#874d1f">Multiple outlets</text>
+  </g>
+  
+  <!-- Lounge Areas -->
+  <g id="lounge-areas">
+    <rect x="750" y="420" width="150" height="80" fill="#f3e5f5" stroke="#7b4a2c" stroke-width="2" rx="8"/>
+    <text x="825" y="445" text-anchor="middle" font-size="12" font-weight="bold" fill="#7b4a2c">Lounges</text>
+    <text x="825" y="465" text-anchor="middle" font-size="10" fill="#5d3a1a">Terminal 1</text>
+    <text x="825" y="485" text-anchor="middle" font-size="9" fill="#5d3a1a">Airport Lounge</text>
+    
+    <rect x="950" y="420" width="150" height="80" fill="#f3e5f5" stroke="#7b4a2c" stroke-width="2" rx="8"/>
+    <text x="1025" y="445" text-anchor="middle" font-size="12" font-weight="bold" fill="#7b4a2c">Lounges</text>
+    <text x="1025" y="465" text-anchor="middle" font-size="10" fill="#5d3a1a">Terminal 2</text>
+    <text x="1025" y="485" text-anchor="middle" font-size="9" fill="#5d3a1a">Airport Lounge</text>
+  </g>
+  
+  <!-- Terminal 3 Specific -->
+  <g id="terminal-3-amenities">
+    <rect x="650" y="420" width="80" height="80" fill="#f3e5f5" stroke="#7b4a2c" stroke-width="2" rx="8"/>
+    <text x="690" y="445" text-anchor="middle" font-size="10" font-weight="bold" fill="#7b4a2c">T3 Lounges</text>
+    <text x="690" y="460" text-anchor="middle" font-size="8" fill="#5d3a1a">Plaza Premium</text>
+    <text x="690" y="475" text-anchor="middle" font-size="8" fill="#5d3a1a">Encalm</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(50, 600)">
+    <text x="0" y="0" font-size="14" font-weight="bold" fill="#1e1b16">Legend:</text>
+    <circle cx="20" cy="30" r="12" fill="#c35a2a"/>
+    <text x="45" y="35" font-size="11" fill="#1e1b16">Gates (T1, T2)</text>
+    <circle cx="20" cy="60" r="12" fill="#0d5c63"/>
+    <text x="45" y="65" font-size="11" fill="#1e1b16">Gates (T3)</text>
+    <rect x="8" y="80" width="24" height="24" fill="#ffcc99" stroke="#c69c2f" stroke-width="2"/>
+    <text x="45" y="98" font-size="11" fill="#1e1b16">Security Checkpoint</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="780" text-anchor="middle" font-size="10" fill="#6b5f52">
+    Schematic representation. Consult official IGI website for precise terminal layouts.
+  </text>
+</svg>

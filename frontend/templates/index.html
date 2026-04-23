@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IGI Airport - Real-Time Flight System</title>
+    <link rel="stylesheet" href="/static/styles-dashboard.css" />
+</head>
+<body class="dashboard-page home-fids-page">
+    <header class="fids-topbar">
+        <div class="fids-title-wrap">
+            <div class="fids-kicker">DELHI AIRPORT - HOME CONSOLE</div>
+            <h1 class="fids-title">Operations Overview</h1>
+        </div>
+        <div class="fids-clock-wrap">
+            <div class="fids-clock" id="current-time">--:--:-- IST</div>
+            <div class="fids-date" id="current-date">Loading...</div>
+            <div class="fids-update">Updated: <span id="footer-time">--:--</span></div>
+        </div>
+        <a class="fids-back" href="/dashboard">Open Dashboard</a>
+    </header>
+
+    <section class="fids-meta">
+        <div class="fids-meta-card">
+            <span class="meta-label">Departures In View</span>
+            <span class="meta-value" id="hero-flights">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Estimated Passengers</span>
+            <span class="meta-value" id="hero-passengers">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Congestion</span>
+            <span class="meta-value" id="hero-congestion">--</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 1</span>
+            <span class="meta-value" id="t1-count">-- flights</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 2</span>
+            <span class="meta-value" id="t2-count">-- flights</span>
+        </div>
+        <div class="fids-meta-card">
+            <span class="meta-label">Terminal 3</span>
+            <span class="meta-value" id="t3-count">-- flights</span>
+        </div>
+    </section>
+
+    <main class="home-fids-main">
+        <section class="fids-board home-section-card" id="flight-search">
+            <div class="board-head">
+                <h2>SEARCH FLIGHT STATUS</h2>
+            </div>
+            <div class="home-card-body">
+                <p class="search-description">Enter a flight number to check status, gate, and terminal information.</p>
+                <form id="flight-form" class="search-form home-search-form">
+                    <div class="search-input-group">
+                        <input
+                            type="text"
+                            id="flight-number"
+                            placeholder="Enter flight number (e.g., AI2404, 6E223)"
+                            required
+                            autocomplete="off"
+                        />
+                        <button type="submit" class="btn-search">Search</button>
+                    </div>
+                    <div id="flight-error" class="error-message"></div>
+                </form>
+                <div id="available-flights" style="display: none;">
+                    <div class="flights-label">Available Flight Numbers</div>
+                    <div id="flights-list"></div>
+                </div>
+                <div id="flight-result" class="search-result"></div>
+            </div>
+        </section>
+
+        <section class="fids-board home-section-card">
+            <div class="board-head">
+                <h2>SYSTEM BRIEF</h2>
+            </div>
+            <div class="home-card-body">
+                <div class="home-brief-grid">
+                    <div class="info-card-new">
+                        <h3>About This System</h3>
+                        <ul>
+                            <li>Real-time style departures board for DEL.</li>
+                            <li>Terminal-wise routing and gate insights.</li>
+                            <li>Security entry congestion indicators.</li>
+                            <li>Fast flight lookup by number.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-new">
+                        <h3>Quick Actions</h3>
+                        <ol>
+                            <li>Open Dashboard for terminal boards and gates.</li>
+                            <li>Search a flight number above for details.</li>
+                            <li>Track updates as data refreshes every 30s.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="homepage-footer home-fids-footer">
+        <p>IGI Airport Operations Console | Last updated: <span id="footer-time-copy">--:--</span> IST</p>
+    </footer>
+
+    <script src="/static/script-homepage.js"></script>
+</body>
+</html>

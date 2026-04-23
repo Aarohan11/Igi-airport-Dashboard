@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Airport Lounge",
+        "terminal": "Terminal 1",
+        "access": "Partner airlines and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Plaza Premium Lounge",
+        "terminal": "Terminal 1",
+        "access": "Business Class, First Class, and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Airport Lounge",
+        "terminal": "Terminal 2",
+        "access": "Partner airlines and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Encalm Lounge",
+        "terminal": "Terminal 2",
+        "access": "Partner airlines, memberships, and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Plaza Premium Lounge",
+        "terminal": "Terminal 3",
+        "access": "Business Class, First Class, and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Encalm Lounge",
+        "terminal": "Terminal 3",
+        "access": "Partner airlines, memberships, and paid access",
+        "booking": "Official IGI Lounge Desk"
+    },
+    {
+        "name": "Air India Maharaja Lounge",
+        "terminal": "Terminal 3",
+        "access": "Air India premium passengers",
+        "booking": "Air India counters"
+    },
+    {
+        "name": "Priority Pass Lounge",
+        "terminal": "Terminal 3",
+        "access": "Priority Pass members",
+        "booking": "Membership verification on-site"
+    }
+]

@@ -1,0 +1,8 @@
+{
+    email {$LETSENCRYPT_EMAIL}
+}
+
+{$DUCKDNS_SUBDOMAIN}.duckdns.org {
+    encode gzip
+    reverse_proxy app:3000
+}

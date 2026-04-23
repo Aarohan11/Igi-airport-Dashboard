@@ -1,0 +1,54 @@
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    container_name: igi-airport-app
+    restart: unless-stopped
+    environment:
+      - MOCK_DASHBOARD_DATA=true
+      - FLIGHT_DATA_PROVIDER=auto
+      - ALLOW_LOW_CONFIDENCE_FALLBACK=false
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2
+    container_name: igi-airport-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DUCKDNS_SUBDOMAIN=${DUCKDNS_SUBDOMAIN}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+    networks:
+      - web
+
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: igi-airport-duckdns
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - SUBDOMAINS=${DUCKDNS_SUBDOMAIN}
+      - TOKEN=${DUCKDNS_TOKEN}
+      - LOG_FILE=true
+    volumes:
+      - ./duckdns-config:/config
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
